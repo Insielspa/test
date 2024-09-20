@@ -32,7 +32,7 @@ def main() -> int:
     config: ConfigParser = configparser.ConfigParser()
 
     # Leggi il file di configurazione
-    config.read('config.ini')
+    config.read('../config.ini')
 
     # Leggi il valore associato alla chiave "chiave" nella sezione "Sezione"
     app_version = config.get('application', 'version')

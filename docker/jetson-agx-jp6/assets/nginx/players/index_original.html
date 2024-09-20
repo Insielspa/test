@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/hls.js"></script>
+</head>
+
+<body style="background-color: rgb(17, 18, 23); margin: 4px;">
+
+<div class="well">
+	<div class="embed-responsive embed-responsive-16by9">
+		<video autoplay id="video"
+			   style="width: 100%"
+			   class="embed-responsive-item video-js vjs-default-skin"
+			   muted="muted"></video>
+	</div>
+</div>
+
+<script>
+	var video = document.getElementById('video');
+	var videoSrc = '/hls/live.m3u8';
+	var retryTimeout = 3000; // 3 seconds
+
+	function startHls() {
+		if (Hls.isSupported()) {
+			var hls = new Hls();
+
+			hls.on(Hls.Events.MANIFEST_PARSED, function () {
+				video.muted = true;
+				video.play();
+			});
+
+			hls.on(Hls.Events.ERROR, function (event, data) {
+				if (data.fatal) {
+					switch (data.type) {
+						case Hls.ErrorTypes.NETWORK_ERROR:
+							console.log('Network error occurred, retrying in ' + retryTimeout / 1000 + ' seconds...');
+							setTimeout(function () {
+								hls.startLoad();
+							}, retryTimeout);
+							break;
+						case Hls.ErrorTypes.MEDIA_ERROR:
+							console.log('Media error occurred, retrying in ' + retryTimeout / 1000 + ' seconds...');
+							hls.recoverMediaError();
+							setTimeout(function () {
+								hls.startLoad();
+							}, retryTimeout);
+							break;
+						default:
+							// For other types of errors, you can handle as needed
+							break;
+					}
+				}
+			});
+
+			hls.loadSource(videoSrc);
+			hls.attachMedia(video);
+			console.log("HLS player supported");
+		} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+			video.src = videoSrc;
+
+			video.addEventListener('error', function () {
+				console.log('Video error occurred, retrying in ' + retryTimeout / 1000 + ' seconds...');
+				setTimeout(function () {
+					video.load(); // Reload the video
+				}, retryTimeout);
+			});
+
+			video.addEventListener('canplay', function () {
+				video.play();
+			});
+			console.log("HLS unsupported, fallback enabled");
+		}
+	}
+
+	startHls();
+</script>
+
+</body>
+</html>
+

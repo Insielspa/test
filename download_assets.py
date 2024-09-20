@@ -71,7 +71,7 @@ def check_assets_exists(platform_name, config):
 def main(selected_platform=None):
     # Leggi il file di configurazione
     config = configparser.ConfigParser()
-    config.read('setup.ini')  # Modificato per usare setup.ini
+    config.read('download_assets.ini')  # Modificato per usare setup.ini
 
     # Lista delle piattaforme disponibili
     platforms = config.sections()
