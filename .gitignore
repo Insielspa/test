@@ -7,3 +7,9 @@ src/fvgvisionai/**/__pycache__/
 venv
 docker/**/.env
 docker/**/build
+assets/models/jetson-agx-jp6_assets.txt
+assets/models/yolov8n-640x640-f16.engine
+assets/models/yolov8n-640x640-f32.engine
+assets/models/yolov8n-pose-640x640-f16.engine
+assets/models/yolov8n-pose-640x640-f32.engine
+assets/videos
