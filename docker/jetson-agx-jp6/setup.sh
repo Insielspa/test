@@ -23,6 +23,7 @@ fi
 # Chiedi all'utente il percorso dell'applicazione
 read -p "Inserisci il percorso dell'applicazione (default: ../../src): " APP_PATH
 APP_PATH=${APP_PATH:-../../src} # Se non viene inserito nulla, usa ../../src
+APP_PATH=$(realpath "$APP_PATH")
 
 # Verifica l'esistenza della directory runtime e crea se non esiste
 RUNTIME_DIR=./runtime

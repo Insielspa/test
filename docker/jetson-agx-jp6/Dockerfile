@@ -195,17 +195,6 @@ RUN rm -r *.whl
 RUN chown -R developer:developer /home/developer/git
 RUN chmod -R a+rw /home/developer/git
 
-# Imposta i permessi corretti per sudo
-#RUN chown root:root /usr/bin/sudo && \
-#    chmod 4755 /usr/bin/sudo && \
-#    chown root:root /etc/sudo.conf && \
-#    chown root:root /usr/libexec/sudo/sudoers.so && \
-#    chmod 644 /usr/libexec/sudo/sudoers.so && \
-#    chown root:root /etc/sudoers.d && \
-#    chmod 750 /etc/sudoers.d && \
-#    chown root:root /etc/sudoers.d/* && \
-#    chmod 440 /etc/sudoers.d/*
-
 # Fase di sviluppo
 FROM development-base AS development
 
