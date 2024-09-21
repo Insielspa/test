@@ -122,7 +122,7 @@ fi
 source .env
 
 echo "Building $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
-docker build --tag xcesco/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION \
+docker build --tag $DOCKER_ACCOUNT_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION \
     --build-arg USER_ID=$USER_ID \
     --build-arg GROUP_ID=$GROUP_ID \
     --target $BUILD_TYPE -f $DOCKER_BASE_DIR/Dockerfile --load $DOCKER_BASE_DIR
@@ -134,5 +134,5 @@ docker build --tag xcesco/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION \
 
 if [ "$DEPLOY" = true ]; then
     echo "Pushing the image to the registry"
-    docker push xcesco/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
+    docker push $DOCKER_ACCOUNT_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
 fi

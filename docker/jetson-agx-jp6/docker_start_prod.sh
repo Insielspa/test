@@ -13,10 +13,10 @@ echo Effettuo run $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
 
 
 # Nome del container
-CONTAINER_NAME="pongor"
+CONTAINER_NAME="fvgvision-main"
 
 # Immagine Docker da utilizzare
-IMAGE_NAME="docker.io/xcesco/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
+IMAGE_NAME="docker.io/$DOCKER_ACCOUNT_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
 
 # Controlla se un container con lo stesso nome è già in esecuzione
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
