@@ -27,3 +27,4 @@ src/fvgvisionai/processor/decorators/__pycache__
 src/fvgvisionai/processor/subprocessors/__pycache__
 src/fvgvisionai/webserver/__pycache__
 venv
+docker/jetson-agx-jp6/.env
