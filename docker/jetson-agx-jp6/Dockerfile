@@ -60,8 +60,8 @@ RUN pip3 install jetson-stats
 
 # Nginx
 RUN apt-get update && apt install -y nginx
-COPY ../assets/nginx/players /usr/share/nginx/html/
-COPY ../assets/nginx/config/nginx.conf /etc/nginx/nginx.conf
+COPY build/assets/nginx/players /usr/share/nginx/html/
+COPY build/assets/nginx/config/nginx.conf /etc/nginx/nginx.conf
 
 # Start Nginx
 RUN service nginx start
