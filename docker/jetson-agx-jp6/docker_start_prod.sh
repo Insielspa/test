@@ -6,6 +6,8 @@ source .env
 DOCKER_BASE_DIR=.
 DOCKER_IMAGE_NAME=$BUILD_IMAGE_NAME
 
+FVGVISION_AI_SCENARIO=main
+
 # Variabile per la versione dell'immagine
 DOCKER_IMAGE_VERSION=${BUILD_IMAGE_VERSION}-${BUILD_IMAGE_PLATFORM}${BUILD_IMAGE_PRODUCTION_PREFIX}
 
@@ -34,13 +36,13 @@ fi
 docker run -d --runtime nvidia \
         --shm-size=5gb \
         --gpus 'all,"capabilities=compute,utility,graphics,video"'   \
-	-p 5000:5000 -p 80:8080 \
-  	--env-file .env \
+        -p 5000:5000 -p 80:8080 \
+  	--env-file .env-$FVGVISION_AI_SCENARIO \
   	-v $APP_PATH:/app \
   	-v $(pwd)/runtime/.bashrc:/home/developer/.bashrc \
 	-v $(pwd)/runtime/.bashrc:/root/.bashrc \
   	--mount type=tmpfs,destination=/mnt/hls \
-	--name $CONTAINER_NAME $IMAGE_NAME 
+	--name $CONTAINER_NAME $IMAGE_NAME
 
 # Verifica se il container è stato avviato correttamente
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
