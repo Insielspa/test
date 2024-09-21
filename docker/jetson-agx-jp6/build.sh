@@ -89,14 +89,15 @@ if [ -d "$BUILD_DIR" ]; then
    echo "La cartella build esiste già. Verrà rimossa..."
    rm -rf "$BUILD_DIR"
 fi
+mkdir -p "$BUILD_DIR"
+
 # Visualizzazione del percorso assoluto della cartella build
 ABSOLUTE_BUILD_DIR=$(realpath "$BUILD_DIR")
 echo "Il percorso assoluto della cartella di build è: $ABSOLUTE_BUILD_DIR"
 
 echo "Copio la cartella assets in $BUILD_DIR/assets"
-cp -r "$ASSETS_DIR" "$BUILD_DIR"
+cp -r "$ASSETS_DIR" "$BUILD_DIR/assets"
 
-mkdir -p "$BUILD_DIR"
 if [[ "$BUILD_TYPE" == "production" ]]; then
     echo "Copio la cartella $APP_DIR in $BUILD_DIR/app"
     cp -r "$APP_DIR" "$BUILD_DIR/app"
