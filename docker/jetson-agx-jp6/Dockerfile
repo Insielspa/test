@@ -225,7 +225,7 @@ RUN chmod 755 /run/sshd
 #COPY --from=builder /usr/local/lib/python3.10/dist-packages /usr/local/lib/python3.10/dist-packages
 
 # Copia dello script di avvio personalizzato per lo sviluppo
-COPY ../assets/entrypoints/start_dev.sh /docker-entrypoint.sh
+COPY build/assets/entrypoints/start_dev.sh /docker-entrypoint.sh
 # Impostazione dei permessi di esecuzione per lo script di avvio
 RUN chmod +x /docker-entrypoint.sh
 
@@ -238,7 +238,7 @@ CMD ["/docker-entrypoint.sh"]
 FROM development-base AS production
 
 # Copia dello script di avvio personalizzato per lo sviluppo
-COPY ../assets/entrypoints/start_prod.sh /docker-entrypoint.sh
+COPY build/assets/entrypoints/start_prod.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 # Copy the app directory into the container
