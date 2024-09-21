@@ -21,8 +21,8 @@ else
 fi
 
 # Chiedi all'utente il percorso dell'applicazione
-read -p "Inserisci il percorso dell'applicazione (default: ./runtime/app): " APP_PATH
-APP_PATH=${APP_PATH:-./runtime/app} # Se non viene inserito nulla, usa ./runtime/app
+read -p "Inserisci il percorso dell'applicazione (default: ../../src): " APP_PATH
+APP_PATH=${APP_PATH:-../../src} # Se non viene inserito nulla, usa ../../src
 
 # Verifica l'esistenza della directory runtime e crea se non esiste
 RUNTIME_DIR=./runtime
