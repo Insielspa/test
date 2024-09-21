@@ -1,9 +1,8 @@
 /src/assets/videos/
 /.idea/
 src/.idea
-src/assets/models/*.txt
-src/assets/models/*.engine
-src/assets/videos
+src/assets/models/**/*.txt
+src/assets/models/**/*.engine
 src/fvgvisionai/**/__pycache__/
 venv
 docker/**/.env
