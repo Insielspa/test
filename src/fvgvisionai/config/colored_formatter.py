@@ -1,7 +1,7 @@
 # Crea un formatter personalizzato
 import logging
 
-from common.ansi_color import ANSI_RESET, ANSI_WHITE_BOLD_TEXT, ANSI_BG_GREEN, ANSI_BG_YELLOW, ANSI_BG_BLUE, \
+from fvgvisionai.common.ansi_color import ANSI_RESET, ANSI_WHITE_BOLD_TEXT, ANSI_BG_GREEN, ANSI_BG_YELLOW, ANSI_BG_BLUE, \
     ANSI_BG_RED, ANSI_BG_CYAN
 
 

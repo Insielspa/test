@@ -1,16 +1,16 @@
 import threading
 from typing import Optional
 
-from benchmark.benchmark_monitor import BenchmarkMonitor
-from common.triple_buffer import TripleBuffer
-from common.video_observable import VideoObservable
-from config.app_settings import AppSettings
-from config.app_settings_utils import ModelLibrary, VideoSourceMode
-from input.image_source.static_image_source_reader import StaticImageSourceReader
-from input.stream_source.cv2_stream_reader import Cv2StreamReader
-from notify.notification_client import NotificationClient
-from processor.passthrough_processor import PassthroughProcessor
-from processor.ultralytics_processor import UltralyticsFrameProcessor
+from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.common.video_observable import VideoObservable
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.config.app_settings_utils import ModelLibrary, VideoSourceMode
+from fvgvisionai.input.image_source.static_image_source_reader import StaticImageSourceReader
+from fvgvisionai.input.stream_source.cv2_stream_reader import Cv2StreamReader
+from fvgvisionai.notify.notification_client import NotificationClient
+from fvgvisionai.processor.passthrough_processor import PassthroughProcessor
+from fvgvisionai.processor.ultralytics_processor import UltralyticsFrameProcessor
 
 
 def run_reader(video_observable: VideoObservable, buffer: TripleBuffer,

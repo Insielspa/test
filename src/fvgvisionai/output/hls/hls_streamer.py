@@ -1,9 +1,9 @@
 import threading
 
-from common.triple_buffer import TripleBuffer
-from common.video_observable import VideoObservable
-from config.app_settings import AppSettings
-from output.hls.ffmpeg_output_streamer import FFMpegOutputStreamer
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.common.video_observable import VideoObservable
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.output.hls.ffmpeg_output_streamer import FFMpegOutputStreamer
 
 
 # Funzione per eseguire il client RTMP in un thread separato

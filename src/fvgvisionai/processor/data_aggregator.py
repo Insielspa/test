@@ -1,8 +1,8 @@
 from typing import List
 
-from processor.detected_object import DetectedObject
-from processor.measure import IntMeasure, FloatMeasure
-from processor.ultralytics_classes import PERSON, BICYCLE, CAR
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.measure import IntMeasure, FloatMeasure
+from fvgvisionai.processor.ultralytics_classes import PERSON, BICYCLE, CAR
 
 
 class DataAggregator:

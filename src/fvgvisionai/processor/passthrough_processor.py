@@ -6,17 +6,17 @@ import numpy as np
 import torch
 from numpy import ndarray
 
-from benchmark.benchmark_monitor import BenchmarkMonitor
-from common.app_timer import AppTimer
-from common.triple_buffer import TripleBuffer
-from config.app_settings import AppSettings
-from notify.notification_client import NotificationClient
-from processor.abstract_frame_processor import AbstractFrameProcessor
-from processor.data_aggregator import DataAggregator
-from processor.decorators.fps_frame_decorator import FpsFrameDecorator
-from processor.decorators.video_info_decorator import VideoInfoDecorator
-from processor.subprocessors.in_zone_sub_processor import AlarmStatus
-from processor.ultralytics_processor import boolean_array_to_binary_sequences
+from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.notify.notification_client import NotificationClient
+from fvgvisionai.processor.abstract_frame_processor import AbstractFrameProcessor
+from fvgvisionai.processor.data_aggregator import DataAggregator
+from fvgvisionai.processor.decorators.fps_frame_decorator import FpsFrameDecorator
+from fvgvisionai.processor.decorators.video_info_decorator import VideoInfoDecorator
+from fvgvisionai.processor.subprocessors.in_zone_sub_processor import AlarmStatus
+from fvgvisionai.processor.ultralytics_processor import boolean_array_to_binary_sequences
 
 
 class PassthroughProcessor(AbstractFrameProcessor, ABC):

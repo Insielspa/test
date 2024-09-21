@@ -8,25 +8,25 @@ import torch
 from numpy import ndarray
 from ultralytics import YOLO
 
-from benchmark.benchmark_monitor import BenchmarkMonitor
-from common.app_timer import AppTimer
-from common.triple_buffer import TripleBuffer
-from config.app_settings import AppSettings
-from notify.notification_client import NotificationClient
-from processor.abstract_frame_processor import AbstractFrameProcessor
-from processor.categories import categories_dict
-from processor.data_aggregator import DataAggregator
-from processor.decorators.alert_decorator import AlertFrameDecorator
-from processor.decorators.fps_frame_decorator import FpsFrameDecorator
-from processor.decorators.object_counter_decorator import ObjectCounterDecorator
-from processor.decorators.parking_decorator import ParkingDecorator
-from processor.decorators.video_info_decorator import VideoInfoDecorator
-from processor.detected_object import DetectedObject
-from processor.subprocessors.detected_object_sub_processor import DetectedObjectSubProcessor
-from processor.subprocessors.door_sub_processor import DoorSubProcessor
-from processor.subprocessors.parking_sub_processor import ParkingSubProcessor
-from processor.subprocessors.raise_your_hand_sub_processor import RaiseYourHandSubProcessor
-from processor.subprocessors.in_zone_sub_processor import InZoneSubProcessor, AlarmStatus
+from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.notify.notification_client import NotificationClient
+from fvgvisionai.processor.abstract_frame_processor import AbstractFrameProcessor
+from fvgvisionai.processor.categories import categories_dict
+from fvgvisionai.processor.data_aggregator import DataAggregator
+from fvgvisionai.processor.decorators.alert_decorator import AlertFrameDecorator
+from fvgvisionai.processor.decorators.fps_frame_decorator import FpsFrameDecorator
+from fvgvisionai.processor.decorators.object_counter_decorator import ObjectCounterDecorator
+from fvgvisionai.processor.decorators.parking_decorator import ParkingDecorator
+from fvgvisionai.processor.decorators.video_info_decorator import VideoInfoDecorator
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.detected_object_sub_processor import DetectedObjectSubProcessor
+from fvgvisionai.processor.subprocessors.door_sub_processor import DoorSubProcessor
+from fvgvisionai.processor.subprocessors.parking_sub_processor import ParkingSubProcessor
+from fvgvisionai.processor.subprocessors.raise_your_hand_sub_processor import RaiseYourHandSubProcessor
+from fvgvisionai.processor.subprocessors.in_zone_sub_processor import InZoneSubProcessor, AlarmStatus
 
 MIN_HEIGHT_FOR_MODEL = 448
 

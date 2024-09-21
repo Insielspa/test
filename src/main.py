@@ -8,15 +8,15 @@ from configparser import ConfigParser
 from types import FrameType
 from typing import Dict
 
-from benchmark.benchmark_monitor import BenchmarkMonitor
-from common.config_executor import ConfigExecutor
-from common.triple_buffer import TripleBuffer
-from common.video_observable import VideoObservable
-from config.app_settings import load_settings_from_file, load_settings_from_env
-from input.frame_reader import run_reader
-from notify.notification_client import NotificationClient
-from output.hls.hls_streamer import run_hls_streamer_thread
-from webserver.web_server import run_web_server
+from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common.config_executor import ConfigExecutor
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.common.video_observable import VideoObservable
+from fvgvisionai.config.app_settings import load_settings_from_file, load_settings_from_env
+from fvgvisionai.input.frame_reader import run_reader
+from fvgvisionai.notify.notification_client import NotificationClient
+from fvgvisionai.output.hls.hls_streamer import run_hls_streamer_thread
+from fvgvisionai.webserver.web_server import run_web_server
 
 exit_signal: threading.Event = threading.Event()
 
@@ -32,7 +32,7 @@ def main() -> int:
     config: ConfigParser = configparser.ConfigParser()
 
     # Leggi il file di configurazione
-    config.read('../config.ini')
+    config.read('config.ini')
 
     # Leggi il valore associato alla chiave "chiave" nella sezione "Sezione"
     app_version = config.get('application', 'version')

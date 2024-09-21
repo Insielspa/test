@@ -4,7 +4,7 @@ import cv2
 import pytz
 from numpy import ndarray
 
-from processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
+from fvgvisionai.processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
 
 # Specifica la zona oraria di Roma
 zona_oraria_roma = "Europe/Rome"

@@ -4,10 +4,10 @@ from typing import List
 
 import numpy as np
 
-from common.app_alarm import AppAlarm, AlarmStatus
-from config.app_settings import AppSettings
-from processor.detected_object import DetectedObject
-from processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
+from fvgvisionai.common.app_alarm import AppAlarm, AlarmStatus
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
 
 # coco keypoint indexes
 KP_NOSE = 0

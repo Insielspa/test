@@ -3,15 +3,15 @@ import numpy as np
 from configparser import ConfigParser
 from typing import List, Dict, Optional
 
-from common.utils import is_tensorrt_installed
-from config.app_settings_utils import from_props, \
+from fvgvisionai.common.utils import is_tensorrt_installed
+from fvgvisionai.config.app_settings_utils import from_props, \
     to_bool, from_env, extract_dimensions, get_array_as_string, to_image_type, \
     to_door_poly, to_model_size, to_zone_poly, ModelSize, ImageType, to_model_library, \
     ModelLibrary, to_model_precision, \
     ModelPrecision, to_model_resolution, ModelResolution, to_binary_array, to_model_categories, to_video_source_mode, \
     VideoSourceMode, to_parking_list, to_str, to_model_filename
-from config.colored_formatter import ColoredFormatter
-from config.constants import NOTIFICATION_AZURE_CONNECTION_STRING, \
+from fvgvisionai.config.colored_formatter import ColoredFormatter
+from fvgvisionai.config.constants import NOTIFICATION_AZURE_CONNECTION_STRING, \
     LOGGING_LEVEL, SECTION_SETTINGS, VIDEO_SOURCE, \
     SECTION_VIDEO_SOURCE, VIDEO_SOURCE_FORCED_FPS_ENABLED, VIDEO_SOURCE_FORCED_FPS_VALUE, \
     VIDEO_SOURCE_FORCED_RESOLUTION_ENABLED, VIDEO_SOURCE_FORCED_RESOLUTION_VALUE, MODEL_LIBRARY, SECTION_MODEL, \
@@ -32,8 +32,8 @@ from config.constants import NOTIFICATION_AZURE_CONNECTION_STRING, \
     SCENARIO_PARKING, SCENARIO_PARKING_COORDS, SCENARIO_PARKING_COLD_DOWN_TIME_S, SCENARIO_PARKING_TIME_LIMIT_S, \
     SCENARIO_PARKING_CATEGORIES, SCENARIO_PARKING_DANGER_LIMIT, SCENARIO_DOOR_ENTERING_ENABLED, \
     SCENARIO_DOOR_LEAVING_ENABLED, SCENARIO_DOOR_LEAVING_LABEL, SCENARIO_DOOR_ENTERING_LABEL, MODEL_FILENAME
-from config.file_property_loader import load_properties_from_file
-from processor.categories import ModelCategory
+from fvgvisionai.config.file_property_loader import load_properties_from_file
+from fvgvisionai.processor.categories import ModelCategory
 
 
 class AppSettings:

@@ -3,9 +3,9 @@ from typing import List
 import cv2
 from numpy import ndarray
 
-from config.app_settings import ModelSize
-from config.app_settings_utils import ModelLibrary, ModelPrecision
-from processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
+from fvgvisionai.config.app_settings import ModelSize
+from fvgvisionai.config.app_settings_utils import ModelLibrary, ModelPrecision
+from fvgvisionai.processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
 
 
 class VideoInfoDecorator(AbstractFrameDecorator):

@@ -8,10 +8,10 @@ from flask import Flask, Response, request
 from flask_wtf import CSRFProtect
 from waitress import serve
 
-from common.app_timer import AppTimer
-from common.loading_image_utils import create_loading_image, rotate_loading_image
-from common.triple_buffer import TripleBuffer
-from config.app_settings import AppSettings
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.loading_image_utils import create_loading_image, rotate_loading_image
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.config.app_settings import AppSettings
 
 
 class WebServer:

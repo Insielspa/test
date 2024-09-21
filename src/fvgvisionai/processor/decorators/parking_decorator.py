@@ -3,10 +3,10 @@ from typing import List
 import cv2
 from numpy import ndarray
 
-from processor.categories import ModelCategory
-from processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
-from processor.detected_object import DetectedObject
-from processor.subprocessors.in_zone_sub_processor import AlarmStatus
+from fvgvisionai.processor.categories import ModelCategory
+from fvgvisionai.processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.in_zone_sub_processor import AlarmStatus
 
 
 class ParkingDecorator(AbstractFrameDecorator):

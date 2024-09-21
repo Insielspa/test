@@ -4,9 +4,9 @@ from typing import List, Dict
 import cv2
 from numpy import ndarray
 
-from common.video_utils import draw_icon
-from processor.categories import categories_dict, ModelCategory
-from processor.detected_object import DetectedObject
+from fvgvisionai.common.video_utils import draw_icon
+from fvgvisionai.processor.categories import categories_dict, ModelCategory
+from fvgvisionai.processor.detected_object import DetectedObject
 
 RAISED_HAND_COLOR = (0, 0, 255)
 # Definire il colore del rettangolo (in formato BGR)

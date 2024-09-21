@@ -2,7 +2,7 @@ import logging
 from enum import Enum
 from typing import Callable
 
-from common.app_timer import AppTimer
+from fvgvisionai.common.app_timer import AppTimer
 
 
 class AlarmStatus(Enum):

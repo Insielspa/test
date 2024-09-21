@@ -4,11 +4,11 @@ from typing import List, Set, Dict
 import cv2
 from numpy import ndarray
 
-from common.app_alarm import AlarmStatus, AppAlarm
-from common.app_timer import AppTimer
-from config.app_settings import AppSettings
-from processor.detected_object import DetectedObject
-from processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
+from fvgvisionai.common.app_alarm import AlarmStatus, AppAlarm
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
 
 
 class InZoneSubProcessor(AbstractSubProcessor):

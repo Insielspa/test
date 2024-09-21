@@ -8,17 +8,17 @@ from typing import Optional
 
 from numpy import ndarray
 
-from benchmark.benchmark_monitor import BenchmarkMonitor
-from common.app_timer import AppTimer
-from common.atomic_boolean import AtomicBoolean
-from common.triple_buffer import TripleBuffer
-from common.video_observable import VideoObserver
-from config.app_settings import AppSettings
-from input.input_costants import NO_CONNECTION_FRAME_INDEX
-from notify.notification_client import NotificationClient
-from processor.data_aggregator import DataAggregator
-from processor.decorators.time_decorator import TimeDecorator
-from processor.subprocessors.in_zone_sub_processor import AlarmStatus
+from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.atomic_boolean import AtomicBoolean
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.common.video_observable import VideoObserver
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.input.input_costants import NO_CONNECTION_FRAME_INDEX
+from fvgvisionai.notify.notification_client import NotificationClient
+from fvgvisionai.processor.data_aggregator import DataAggregator
+from fvgvisionai.processor.decorators.time_decorator import TimeDecorator
+from fvgvisionai.processor.subprocessors.in_zone_sub_processor import AlarmStatus
 
 
 class AbstractFrameProcessor(VideoObserver, ABC):

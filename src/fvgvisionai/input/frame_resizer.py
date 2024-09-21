@@ -3,7 +3,7 @@ import logging
 import cv2
 from numpy import ndarray
 
-from config.app_settings import AppSettings
+from fvgvisionai.config.app_settings import AppSettings
 
 
 class FrameResizer:

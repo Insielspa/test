@@ -3,8 +3,8 @@ import threading
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from common.video_observable import VideoObservable
-from config.app_settings import AppSettings
+from fvgvisionai.common.video_observable import VideoObservable
+from fvgvisionai.config.app_settings import AppSettings
 
 
 class AbstractVideoSource(ABC):

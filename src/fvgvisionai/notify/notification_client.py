@@ -9,10 +9,10 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Optional
 
-from common.app_alarm import AlarmStatus
-from common.app_timer import AppTimer
-from common.atomic_boolean import AtomicBoolean
-from processor.data_aggregator import DataAggregator
+from fvgvisionai.common.app_alarm import AlarmStatus
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.atomic_boolean import AtomicBoolean
+from fvgvisionai.processor.data_aggregator import DataAggregator
 
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
 

@@ -14,10 +14,10 @@ from openpyxl.chart import Reference, LineChart
 from openpyxl.chart.series import SeriesLabel
 from openpyxl.worksheet.worksheet import Worksheet
 
-from common.app_timer import AppTimer
-from common.atomic_boolean import AtomicBoolean
-from config.app_settings import AppSettings
-from processor.data_aggregator import DataAggregator
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.atomic_boolean import AtomicBoolean
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.data_aggregator import DataAggregator
 
 X_AXIS_TITLE = "Time (s)"
 

@@ -5,12 +5,12 @@ import cv2
 import numpy as np
 from numpy import ndarray
 
-from common.app_alarm import AlarmStatus, AppAlarm
-from common.app_timer import AppTimer
-from common.video_utils import draw_icon
-from config.app_settings import AppSettings
-from processor.detected_object import DetectedObject
-from processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
+from fvgvisionai.common.app_alarm import AlarmStatus, AppAlarm
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.video_utils import draw_icon
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
 
 
 class ParkingSubProcessor(AbstractSubProcessor):

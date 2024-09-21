@@ -10,11 +10,11 @@ from typing import Optional
 
 from numpy import ndarray
 
-from common.app_timer import AppTimer
-from common.triple_buffer import TripleBuffer
-from common.video_observable import VideoObserver
-from config.app_settings import AppSettings
-from output.hls.hls_commons import WAIT_TIME_IN_SEC
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.triple_buffer import TripleBuffer
+from fvgvisionai.common.video_observable import VideoObserver
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.output.hls.hls_commons import WAIT_TIME_IN_SEC
 
 
 class GStreamerOutputStreamer(VideoObserver, ABC):

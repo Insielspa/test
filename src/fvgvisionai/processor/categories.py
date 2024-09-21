@@ -1,6 +1,6 @@
 from typing import Dict, Tuple
 
-from processor.ultralytics_classes import PERSON, BICYCLE, CAR, MOTORCYCLE, BUS, TRUCK
+from fvgvisionai.processor.ultralytics_classes import PERSON, BICYCLE, CAR, MOTORCYCLE, BUS, TRUCK
 
 
 class ModelCategory:

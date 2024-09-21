@@ -4,13 +4,13 @@ import traceback
 import cv2
 from numpy import ndarray
 
-from common.app_timer import AppTimer
-from common.utils import compute_elapsed_time_ms, wait_frame_duration
-from common.video_observable import VideoObservable
-from config.app_settings import AppSettings
-from input.abstract_video_source import AbstractVideoSource
-from input.frame_resizer import FrameResizer
-from input.input_costants import DEFAULT_SOURCE_FPS
+from fvgvisionai.common.app_timer import AppTimer
+from fvgvisionai.common.utils import compute_elapsed_time_ms, wait_frame_duration
+from fvgvisionai.common.video_observable import VideoObservable
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.input.abstract_video_source import AbstractVideoSource
+from fvgvisionai.input.frame_resizer import FrameResizer
+from fvgvisionai.input.input_costants import DEFAULT_SOURCE_FPS
 
 
 class StaticImageSourceReader(AbstractVideoSource):

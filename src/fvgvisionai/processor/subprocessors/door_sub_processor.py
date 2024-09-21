@@ -4,9 +4,9 @@ from typing import List, Set
 import cv2
 from numpy import ndarray
 
-from config.app_settings import AppSettings
-from processor.detected_object import DetectedObject
-from processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.detected_object import DetectedObject
+from fvgvisionai.processor.subprocessors.abstract_sub_processor import AbstractSubProcessor
 
 
 class DoorSubProcessor(AbstractSubProcessor):

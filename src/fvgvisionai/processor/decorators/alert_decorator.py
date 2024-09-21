@@ -1,10 +1,10 @@
 import cv2
 from numpy import ndarray
 
-from common.app_alarm import AlarmStatus
-from common.video_utils import draw_icon
-from config.app_settings import AppSettings
-from processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
+from fvgvisionai.common.app_alarm import AlarmStatus
+from fvgvisionai.common.video_utils import draw_icon
+from fvgvisionai.config.app_settings import AppSettings
+from fvgvisionai.processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
 
 
 def is_alarm_status(zone_alarm_status) -> bool:

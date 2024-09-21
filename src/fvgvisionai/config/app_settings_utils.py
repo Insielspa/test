@@ -7,7 +7,7 @@ from typing import Dict, Optional, List
 import cv2
 import numpy as np
 
-from processor.categories import ModelCategory, all_category_list
+from fvgvisionai.processor.categories import ModelCategory, all_category_list
 
 
 class VideoSourceMode(Enum):

@@ -1,7 +1,7 @@
 import cv2
 from numpy import ndarray
 
-from processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
+from fvgvisionai.processor.decorators.abstract_frame_decorator import AbstractFrameDecorator, FrameDecoratorPosition
 
 
 class FpsFrameDecorator(AbstractFrameDecorator):
