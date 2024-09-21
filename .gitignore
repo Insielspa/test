@@ -1,11 +1,10 @@
 /src/assets/videos/
 /.idea/
-assets/models/*.txt
-assets/models/*.engine
-assets/videos
-docker/**/build
 src/.idea
-# Ignora tutte le cartelle __pycache__ sotto src/fvgvisionai
+src/assets/models/*.txt
+src/assets/models/*.engine
+src/assets/videos
 src/fvgvisionai/**/__pycache__/
 venv
-docker/jetson-agx-jp6/.env
+docker/**/.env
+docker/**/build
