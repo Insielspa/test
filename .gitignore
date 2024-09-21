@@ -9,22 +9,8 @@
 assets/models
 assets/videos
 docker/jetson-agx-jp6/build
-docker/jetson-agx-jp6/build/app/src/assets/videos
-docker/jetson-agx-jp6/build/app/src/assets/videos/jetson-agx-jp6_assets.txt
 src/.idea
-src/fvgvisionai/__pycache__
-src/fvgvisionai/benchmark/__pycache__
-src/fvgvisionai/common/__pycache__
-src/fvgvisionai/config/__pycache__
-src/fvgvisionai/input/__pycache__
-src/fvgvisionai/input/image_source/__pycache__
-src/fvgvisionai/input/stream_source/__pycache__
-src/fvgvisionai/notify/__pycache__
-src/fvgvisionai/output/__pycache__
-src/fvgvisionai/output/hls/__pycache__
-src/fvgvisionai/processor/__pycache__
-src/fvgvisionai/processor/decorators/__pycache__
-src/fvgvisionai/processor/subprocessors/__pycache__
-src/fvgvisionai/webserver/__pycache__
+# Ignora tutte le cartelle __pycache__ sotto src/fvgvisionai
+src/fvgvisionai/**/__pycache__/
 venv
 docker/jetson-agx-jp6/.env

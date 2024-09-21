@@ -2,8 +2,8 @@ FROM nvcr.io/nvidia/l4t-jetpack:r36.3.0 AS common
 
 # Aggiunta della direttiva LABEL per fornire metadati
 LABEL maintainer="Francesco Benincasa <xcesco@gmail.com>" \
-      version="0.4.0" \
-      description="Versione docker di Clear Vision"
+      version="0.1.0" \
+      description="Versione docker di FVG Vision AI"
 
 
 # Esposizione delle porte 5000 e 8080 (video in oupput)
@@ -32,7 +32,6 @@ ENV GROUP_ID=$GROUP_ID
 RUN groupadd -g $GROUP_ID developer
 
 # Creazione di un utente develper con permessi sudo e video
-# https://jira.insiel.it/browse/FV-133
 RUN useradd -rm -d /home/developer -s /bin/bash -g ${GROUP_ID} -G sudo,video -u ${USER_ID} developer
 RUN echo 'developer:developer' | chpasswd
 
