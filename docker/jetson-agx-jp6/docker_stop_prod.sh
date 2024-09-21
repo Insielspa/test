@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Nome del container
-CONTAINER_NAME="pongor"
+CONTAINER_NAME="fvgvision-ai-main"
 
 # Controlla se il container è in esecuzione e fermalo
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
