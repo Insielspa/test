@@ -94,7 +94,7 @@ ABSOLUTE_BUILD_DIR=$(realpath "$BUILD_DIR")
 echo "Il percorso assoluto della cartella di build è: $ABSOLUTE_BUILD_DIR"
 
 echo "Copio la cartella assets in $BUILD_DIR/assets"
-cp -r "$ASSETS_DIR" "$BUILD_DIR/assets"
+cp -r "$ASSETS_DIR" "$BUILD_DIR"
 
 mkdir -p "$BUILD_DIR"
 if [[ "$BUILD_TYPE" == "production" ]]; then
