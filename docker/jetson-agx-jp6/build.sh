@@ -14,7 +14,7 @@ DEPLOY=false
 APP_OVERRIDE=false
 BUILD_TYPE=""
 APP_DIR="$APP_PATH"
-ASSETS_DIR="..\assets"
+ASSETS_DIR="../assets"
 
 usage() {
     echo "Usage: $0 [options]"
