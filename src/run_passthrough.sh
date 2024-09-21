@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 ./fvgvisionai/main.py --file .env-pongo-dev --arg MODEL_LIBRARY=passthrough
+python3 ./main.py --file .env-main --arg MODEL_LIBRARY=passthrough

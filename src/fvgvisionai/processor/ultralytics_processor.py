@@ -55,7 +55,7 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
                     self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}-{app_settings.model_resolution.value['suffix']}-{app_settings.model_precision.value['suffix']}.engine"
                 else:
                     self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}.pt"
-            self._model = YOLO(f"./assets/models/v1/{self._model_file_name}")
+            self._model = YOLO(f"./assets/models/{self._model_file_name}")
 
         self._image_source_width = 0
         self._image_source_height = 0
@@ -165,7 +165,7 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
 
                 if self._tracking_enabled:
                     results = self._model.track(model_frame, verbose=False,
-                                                tracker="assets/models/v1/tracker.yaml",
+                                                tracker="assets/models/tracker.yaml",
                                                 imgsz=self._app_settings.model_resolution.value["resolution"],
                                                 conf=self._app_settings.model_confidence,
                                                 iou=self._app_settings.model_iou,

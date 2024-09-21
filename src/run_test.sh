@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 ./fvgvisionai/main.py --file .env-test
+python3 ./main.py --file .env-test

@@ -1,12 +1,8 @@
 /src/assets/models/
 /src/assets/videos/
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/vcs.xml
-/.idea/webResources.xml
-assets/models
+/.idea/
+assets/models/*.txt
+assets/models/*.engine
 assets/videos
 docker/jetson-agx-jp6/build
 src/.idea

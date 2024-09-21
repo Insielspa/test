@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 ./fvgvisionai/main.py --env
+python3 ./main.py --env
