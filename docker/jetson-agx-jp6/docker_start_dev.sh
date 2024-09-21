@@ -35,12 +35,12 @@ docker run -d --runtime nvidia \
         --shm-size=5gb \
         --gpus 'all,"capabilities=compute,utility,graphics,video"'   \
 	-p 2222:22 -p 5000:5000 -p 80:8080 -p 8888:8888 \
-  	--env-file .env \
-  	-v /home/crono/app:/app \
-  	-v $(pwd)/.bashrc:/home/developer/.bashrc \
-	-v $(pwd)/.bashrc:/root/.bashrc \
-  	--mount type=tmpfs,destination=/mnt/hls \
-	--name $CONTAINER_NAME $IMAGE_NAME 
+  --env-file .env \
+    -v $APP_PATH:/app \
+    -v $(pwd)/runtime/.bashrc:/home/developer/.bashrc \
+    -v $(pwd)/runtime/.bashrc:/root/.bashrc \
+    --mount type=tmpfs,destination=/mnt/hls \
+    --name $CONTAINER_NAME $IMAGE_NAME
 
 # Verifica se il container è stato avviato correttamente
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
