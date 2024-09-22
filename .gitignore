@@ -7,6 +7,8 @@ src/fvgvisionai/**/__pycache__/
 venv
 docker/**/.env
 docker/**/build
+docker/**/runtime/.bashrc
 assets/models/**/*.txt
 assets/models/**/*.engine
 assets/videos
+

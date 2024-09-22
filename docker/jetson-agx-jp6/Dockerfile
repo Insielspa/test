@@ -3,14 +3,14 @@ FROM nvcr.io/nvidia/l4t-jetpack:r36.3.0 AS common
 # Aggiunta della direttiva LABEL per fornire metadati
 LABEL maintainer="Francesco Benincasa <xcesco@gmail.com>" \
       version="0.1.0" \
-      description="Versione docker di FVG Vision AI"
+      description="FVG Vision AI on docker"
 
 
 # Esposizione delle porte 5000 e 8080 (video in oupput)
 EXPOSE 5000/tcp
 EXPOSE 8080/tcp
 
-# Fase di sviluppo
+# Base layer
 FROM common AS development-base
 
 # Installazione dei package **essenziali**
@@ -35,15 +35,14 @@ RUN groupadd -g $GROUP_ID developer
 RUN useradd -rm -d /home/developer -s /bin/bash -g ${GROUP_ID} -G sudo,video -u ${USER_ID} developer
 RUN echo 'developer:developer' | chpasswd
 
-RUN apt-get update && apt-get install -y \
-    ffmpeg
+# Install ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg
 
 WORKDIR /home/developer
 
 # Timezone
 ENV TZ=Europe/Rome
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 
 RUN mkdir /home/developer/git
 
@@ -52,10 +51,6 @@ RUN git clone https://github.com/jetsonhacks/jetsonUtilities
 
 RUN pip3 install --upgrade pip
 RUN pip3 install jetson-stats
-
-# Bashrc
-#COPY ./assets/home/.bashrc /home/developer/.bashrc
-#COPY ./assets/home/.bashrc /root/.bashrc
 
 # Nginx
 RUN apt-get update && apt install -y nginx
