@@ -14,6 +14,6 @@ and intelligent systems.
 
 - Real-time object detection and tracking
 - Edge computing optimization for low-latency processing
-- Seamless integration with IoT and cloud platforms
+- Seamless integration with IoT Hub platform
 - Built on Ultralytics and other open-source libraries
 
