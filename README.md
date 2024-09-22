@@ -1,4 +1,4 @@
-<img src="https://github.com/user-attachments/assets/0f94b379-4fa4-4934-8ac2-fd8d17eb4eb0" width="384px"/>
+<img src="docs/fvg%20vision%20ai-trasparent.png" width="384px"/>
 
 # FVG Vision AI - Edge Stream and Analysis
 
