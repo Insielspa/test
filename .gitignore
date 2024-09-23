@@ -3,6 +3,7 @@
 src/.idea
 src/assets/models/**/*.txt
 src/assets/models/**/*.engine
+src/assets/models/**/*.pt
 src/fvgvisionai/**/__pycache__/
 venv
 docker/**/.env
