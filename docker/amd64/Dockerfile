@@ -58,9 +58,6 @@ RUN apt-get update && apt-get install -y nginx
 COPY ./build/assets/nginx/players /usr/share/nginx/html/
 COPY ./build/assets/nginx/config/nginx.conf /etc/nginx/nginx.conf
 
-# Start Nginx
-RUN service nginx start
-
 ##############################################################
 #
 #            P y t h o n    D e p e n d e n c i e s
