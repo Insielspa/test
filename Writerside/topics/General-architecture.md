@@ -80,5 +80,8 @@ graph LR
 
    classDef blackText fill:none,stroke:none,font-size:16px,color:#000;
    class A,B,C,D,E,F,G,H,I,J,K blackText;
-
 ```
+
+The same diagram as image:
+
+![Alt Text](schema_01.png){ thumbnail="true" }
