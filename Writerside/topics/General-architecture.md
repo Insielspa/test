@@ -66,22 +66,15 @@ graph LR
       J --> K[FPS, Resource Usage]
    end
 
-   style A fill:#ffcc99,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style B fill:#99ccff,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style C fill:#ffcccc,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style D fill:#ffccff,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style E fill:#ffff99,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style F fill:#ff9966,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style G fill:#ccffcc,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style H fill:#ccccff,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style I fill:#ff9999,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style J fill:#99ffcc,stroke:#333,stroke-width:2px,rx:5,ry:5
-   style K fill:#ffcc66,stroke:#333,stroke-width:2px,rx:5,ry:5
-
-   classDef blackText fill:none,stroke:none,font-size:16px,color:#000;
-   class A,B,C,D,E,F,G,H,I,J,K blackText;
+style A fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+style B fill:#99ccff,stroke:#333,stroke-width:2px,color:#000
+style C fill:#ffcccc,stroke:#333,stroke-width:2px,color:#000
+style D fill:#ffccff,stroke:#333,stroke-width:2px,color:#000
+style E fill:#ffff99,stroke:#333,stroke-width:2px,color:#000
+style F fill:#ff9966,stroke:#333,stroke-width:2px,color:#000
+style G fill:#ccffcc,stroke:#333,stroke-width:2px,color:#000
+style H fill:#ccccff,stroke:#333,stroke-width:2px,color:#000
+style I fill:#ff9999,stroke:#333,stroke-width:2px,color:#000
+style J fill:#99ffcc,stroke:#333,stroke-width:2px,color:#000
+style K fill:#ffcc66,stroke:#333,stroke-width:2px,color:#000
 ```
-
-The same diagram as image:
-
-![Alt Text](schema_01.png){ thumbnail="true" }
