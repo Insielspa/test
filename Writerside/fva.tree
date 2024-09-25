@@ -6,5 +6,66 @@
                  name="FVG Vision AI"
                  start-page="starter.md">
 
-    <toc-element topic="starter.md"/>
+    <toc-element topic="starter.md">
+        <toc-element topic="Project-description.md"/>
+        <toc-element topic="Goals-and-use-cases.md"/>
+        <toc-element topic="General-architecture.md"/>
+    </toc-element>
+    <toc-element topic="Requirements.md">
+        <toc-element topic="Software-dependencies.md"/>
+        <toc-element topic="Dependency-installation.md"/>
+        <toc-element topic="Supported-hardware.md"/>
+    </toc-element>
+    <toc-element topic="Installation-and-setup.md"/>
+    <toc-element topic="Main-modules.md">
+        <toc-element topic="Flow-diagram.md"/>
+        <toc-element topic="Input.md"/>
+        <toc-element topic="Processing.md"/>
+        <toc-element topic="Output.md"/>
+        <toc-element topic="Notification.md"/>
+        <toc-element topic="Benchmark.md"/>
+    </toc-element>
+    <toc-element topic="Configuration.md">
+        <toc-element topic="Environment-variables.md"/>
+        <toc-element topic="Configuration-file.md"/>
+        <toc-element topic="Command-line-parameters.md"/>
+    </toc-element>
+    <toc-element topic="Supported-scenario.md">
+        <toc-element topic="People-counting.md"/>
+        <toc-element topic="Monitoring-free-parking-spots.md"/>
+        <toc-element topic="Detecting-raised-hands.md"/>
+        <toc-element topic="Counting-line-crossing.md"/>
+    </toc-element>
+    <toc-element topic="System-usage.md">
+        <toc-element topic="Starting-the-application-within-docker.md"/>
+        <toc-element topic="Scenario-configuration-via-file-or-environment.md"/>
+        <toc-element topic="Viewing-results-video-stream-logs-FPS.md"/>
+    </toc-element>
+    <toc-element topic="Deployment.md">
+        <toc-element topic="Docker-images-development-and-production.md"/>
+        <toc-element topic="Deployment-on-different-platforms-PC-vs-Jetson.md"/>
+    </toc-element>
+    <toc-element topic="Loggining-management.md">
+        <toc-element topic="Log-level-configuration.md"/>
+        <toc-element topic="Available-environment-variabiles.md"/>
+        <toc-element topic="Monitoring-events-and-performances.md"/>
+    </toc-element>
+    <toc-element topic="Monitoring-and-notifications.md">
+        <toc-element topic="Configuring-Azure-IoT-Hub.md"/>
+        <toc-element topic="Integration-with-notification-systems.md"/>
+    </toc-element>
+    <toc-element topic="Maintanance-and-updates.md">
+        <toc-element topic="How-to-update-the-application-and-its-modules.md"/>
+    </toc-element>
+    <toc-element topic="Future-extensions-and-scenarios.md"/>
+    <toc-element topic="Dictionary.md">
+        <toc-element topic="CUDA.md"/>
+        <toc-element topic="Docker.md"/>
+        <toc-element topic="Azure-IoT-Hub.md"/>
+        <toc-element topic="RTSP.md"/>
+        <toc-element topic="OpenCV.md"/>
+        <toc-element topic="Ultalytics.md"/>
+        <toc-element topic="FFMPEG.md"/>
+        <toc-element topic="HLS.md"/>
+    </toc-element>
 </instance-profile>

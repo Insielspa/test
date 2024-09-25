@@ -1,0 +1,3 @@
+# Future extensions and scenarios
+
+Start typing here...

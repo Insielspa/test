@@ -1,5 +1,7 @@
 # FVG Vision AI
 
+![logo.png](../images/logo.png)
+
 FVG Vision AI is an advanced real-time video analysis platform based on AI and edge computing technologies. Utilizing *
 Ultralytics* and other open-source libraries, it detects and tracks objects such as vehicles, people, and more,
 providing real-time insights for applications like surveillance and smart city management. With a focus on low-latency

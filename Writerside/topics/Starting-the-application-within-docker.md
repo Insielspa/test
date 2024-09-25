@@ -1,0 +1,3 @@
+# Starting the application (within docker)
+
+Start typing here...
