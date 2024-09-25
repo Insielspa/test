@@ -10,6 +10,13 @@
         <variables>
             <noindex-content>true</noindex-content>
         </variables>
+
+        <footer>
+            <link href="https://www.insiel.it">Insiel S.p.A.</link>
+            <social type="facebook" href="https://www.facebook.com/InsielSpA/?locale=it_IT"/>
+            <social type="linkedin" href="https://www.linkedin.com/company/insiel/?originalSubdomain=it"/>
+            <social type="twitter" href="https://x.com/insielspa"/>
+        </footer>
     </build-profile>
 
 </buildprofiles>

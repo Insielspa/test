@@ -66,7 +66,7 @@ graph LR
       J --> K[FPS, Resource Usage]
    end
 
-style A fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+style A fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000,height:60
 style B fill:#99ccff,stroke:#333,stroke-width:2px,color:#000
 style C fill:#ffcccc,stroke:#333,stroke-width:2px,color:#000
 style D fill:#ffccff,stroke:#333,stroke-width:2px,color:#000
