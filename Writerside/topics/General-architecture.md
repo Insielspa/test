@@ -67,14 +67,14 @@ graph LR
    end
 
 style A fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000,height:60
-style B fill:#99ccff,stroke:#333,stroke-width:2px,color:#000
-style C fill:#ffcccc,stroke:#333,stroke-width:2px,color:#000
-style D fill:#ffccff,stroke:#333,stroke-width:2px,color:#000
-style E fill:#ffff99,stroke:#333,stroke-width:2px,color:#000
-style F fill:#ff9966,stroke:#333,stroke-width:2px,color:#000
-style G fill:#ccffcc,stroke:#333,stroke-width:2px,color:#000
-style H fill:#ccccff,stroke:#333,stroke-width:2px,color:#000
-style I fill:#ff9999,stroke:#333,stroke-width:2px,color:#000
-style J fill:#99ffcc,stroke:#333,stroke-width:2px,color:#000
-style K fill:#ffcc66,stroke:#333,stroke-width:2px,color:#000
+style B fill:#99ccff,stroke:#333,stroke-width:2px,color:#000,height:60
+style C fill:#ffcccc,stroke:#333,stroke-width:2px,color:#000,height:60
+style D fill:#ffccff,stroke:#333,stroke-width:2px,color:#000,height:60
+style E fill:#ffff99,stroke:#333,stroke-width:2px,color:#000,height:60
+style F fill:#ff9966,stroke:#333,stroke-width:2px,color:#000,height:60
+style G fill:#ccffcc,stroke:#333,stroke-width:2px,color:#000,height:60
+style H fill:#ccccff,stroke:#333,stroke-width:2px,color:#000,height:60
+style I fill:#ff9999,stroke:#333,stroke-width:2px,color:#000,height:60
+style J fill:#99ffcc,stroke:#333,stroke-width:2px,color:#000,height:60
+style K fill:#ffcc66,stroke:#333,stroke-width:2px,color:#000,height:60
 ```
