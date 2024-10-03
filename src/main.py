@@ -1,5 +1,7 @@
 import argparse
+import atexit
 import configparser
+import os
 import signal
 import sys
 import threading
@@ -9,7 +11,9 @@ from types import FrameType
 from typing import Dict
 
 from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
+from fvgvisionai.common import pid_file
 from fvgvisionai.common.config_executor import ConfigExecutor
+from fvgvisionai.common.pid_file import remove_pid_file, is_another_instance_running, write_pid_file
 from fvgvisionai.common.triple_buffer import TripleBuffer
 from fvgvisionai.common.video_observable import VideoObservable
 from fvgvisionai.config.app_settings import load_settings_from_file, load_settings_from_env
@@ -21,13 +25,14 @@ from fvgvisionai.webserver.web_server import run_web_server
 exit_signal: threading.Event = threading.Event()
 
 
-def signal_handler(_: int, __: FrameType):
-    print("Received interrupt signal (CTRL+C). Shutdown is running...")
+def handle_exit(_: int, __: FrameType):
+    print(f"Received interrupt signal (CTRL+C). Shutdown is running and pid file {pid_file} will be removed")
     exit_signal.set()
-
+    remove_pid_file()
 
 def main() -> int:
     global exit_signal
+
     # Crea un oggetto ConfigParser
     config: ConfigParser = configparser.ConfigParser()
 
@@ -50,7 +55,7 @@ def main() -> int:
 
     if args.version:
         print(f"{app_name} - v.{app_version}")
-        return -1
+        return 0
 
     config_executor = ConfigExecutor()
     config_executor.apply_logging_config(config)
@@ -67,10 +72,22 @@ def main() -> int:
     else:
         print("Argument --file or --env must be used to configure program.")
         return -1
+
+    if is_another_instance_running(app_name):
+        exit_signal.set()
+        return -1
+
+    # Scrive il PID al lancio dell'applicazione
+    write_pid_file()
+
+    # Rimuove il file PID alla terminazione dell'applicazione
+    atexit.register(remove_pid_file)
+
     app_settings.show_properties()
 
     # Collega il gestore dei segnali al segnale SIGINT (CTRL+C)
-    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGINT, handle_exit)
+    signal.signal(signal.SIGTERM, handle_exit)
 
     video_observable = VideoObservable()
     image_buffer = TripleBuffer()
