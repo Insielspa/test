@@ -65,7 +65,7 @@ class BenchmarkMonitor:
         else:
             model_type = "pytorch"
 
-        self.bench_name = app_settings.model_id + " " + model_type
+        self.bench_name = app_settings.model_id.value['name'] + " " + model_type
         self.sheet_name = f"b {self.bench_name}"
 
         if self.sheet_name in self.workbook.get_sheet_names():

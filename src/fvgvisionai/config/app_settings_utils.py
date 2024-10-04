@@ -22,6 +22,10 @@ class ModelLibrary(Enum):
     PASSTHROUGH = {"name": "passthrough"}
 
 
+class ModelId(Enum):
+    V8 = {"name": "yolo8", "prefix": "yolov8"}
+    V11 = {"name": "yolo11", "prefix": "yolo11"}
+
 class ModelSize(Enum):
     NANO = {"name": "nano", "suffix": "n"}
     SMALL = {"name": "small", "suffix": "s"}
@@ -276,6 +280,11 @@ def to_model_precision(input_string: str) -> ModelPrecision:
             return enum_value
     raise ValueError(f"String '{input_string}' non corrisponde a nessun valore enumerativo.")
 
+def to_model_id(input_string: str) -> ModelId:
+    for enum_value in ModelId:
+        if enum_value.value["name"] == input_string.strip().lower():
+            return enum_value
+    raise ValueError(f"String '{input_string}' non corrisponde a nessun valore enumerativo.")
 
 def to_model_library(input_string: str) -> ModelLibrary:
     for enum_value in ModelLibrary:

@@ -47,14 +47,14 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
         else:
             if self._app_settings.scenario_pose_enabled:
                 if self._app_settings.model_use_tensort:
-                    self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}-pose-{app_settings.model_resolution.value['suffix']}-{app_settings.model_precision.value['suffix']}.engine"
+                    self._model_file_name = f"{app_settings.model_id.value['prefix']}{app_settings.model_size.value['suffix']}-pose-{app_settings.model_resolution.value['suffix']}-{app_settings.model_precision.value['suffix']}.engine"
                 else:
-                    self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}-pose.pt"
+                    self._model_file_name = f"{app_settings.model_id.value['prefix']}{app_settings.model_size.value['suffix']}-pose.pt"
             else:
                 if self._app_settings.model_use_tensort:
-                    self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}-{app_settings.model_resolution.value['suffix']}-{app_settings.model_precision.value['suffix']}.engine"
+                    self._model_file_name = f"{app_settings.model_id.value['prefix']}{app_settings.model_size.value['suffix']}-{app_settings.model_resolution.value['suffix']}-{app_settings.model_precision.value['suffix']}.engine"
                 else:
-                    self._model_file_name = f"yolov8{app_settings.model_size.value['suffix']}.pt"
+                    self._model_file_name = f"{app_settings.model_id.value['prefix']}{app_settings.model_size.value['suffix']}.pt"
             self._model = YOLO(f"./assets/models/{self._model_file_name}")
 
         self._image_source_width = 0

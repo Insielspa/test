@@ -9,7 +9,7 @@ from fvgvisionai.config.app_settings_utils import from_props, \
     to_door_poly, to_model_size, to_zone_poly, ModelSize, ImageType, to_model_library, \
     ModelLibrary, to_model_precision, \
     ModelPrecision, to_model_resolution, ModelResolution, to_binary_array, to_model_categories, to_video_source_mode, \
-    VideoSourceMode, to_parking_list, to_str, to_model_filename
+    VideoSourceMode, to_parking_list, to_str, to_model_filename, ModelId, to_model_id
 from fvgvisionai.config.colored_formatter import ColoredFormatter
 from fvgvisionai.config.constants import NOTIFICATION_AZURE_CONNECTION_STRING, \
     LOGGING_LEVEL, SECTION_SETTINGS, VIDEO_SOURCE, \
@@ -73,7 +73,7 @@ class AppSettings:
 
             # section MODEL
             self._model_library = to_model_library(from_props(properties, config, MODEL_LIBRARY, SECTION_MODEL))
-            self._model_id = from_props(properties, config, MODEL_ID, SECTION_MODEL)
+            self._model_id = to_model_id(from_props(properties, config, MODEL_ID, SECTION_MODEL))
             self._model_filename = to_model_filename(from_props(properties, config, MODEL_FILENAME, SECTION_MODEL))
             self._model_skip_frames_enabled = to_bool(from_props(properties, config, MODEL_SKIP_FRAMES, SECTION_MODEL))
             self._model_skip_frames_mask = to_binary_array(
@@ -215,7 +215,7 @@ class AppSettings:
                 from_env(config, VIDEO_SOURCE_FORCED_RESOLUTION_VALUE, SECTION_VIDEO_SOURCE, cli_args))
 
             # section MODEL
-            self._model_id = from_env(config, MODEL_ID, SECTION_MODEL, cli_args)
+            self._model_id = to_model_id(from_env(config, MODEL_ID, SECTION_MODEL, cli_args))
             self._model_library = to_model_library(from_env(config, MODEL_LIBRARY, SECTION_MODEL, cli_args))
             self._model_filename = to_model_filename(from_env(config, MODEL_FILENAME, SECTION_MODEL, cli_args))
             self._model_skip_frames_enabled = to_bool(from_env(config, MODEL_SKIP_FRAMES, SECTION_MODEL, cli_args))
@@ -432,7 +432,7 @@ class AppSettings:
         return self._model_library
 
     @property
-    def model_id(self) -> str:
+    def model_id(self) -> ModelId:
         return self._model_id
 
     @property
