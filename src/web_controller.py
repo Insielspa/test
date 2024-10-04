@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from flask import Flask, request, abort
+from flask import Flask, request, abort, jsonify
 
 from fvgvisionai.common.pid_file import read_pid_from_file, terminate_process
 
@@ -30,8 +30,8 @@ def start_app():
     execute_fvgvision_ai(command)
 
     # Avvia il processo come demone, senza bloccare il processo principale
-
-    return "App avviata con successo"
+    status = "RUNNING"
+    return jsonify({"status": "ok", "result": status, "description": f"App is {status}"}), 200
 
 
 def execute_fvgvision_ai(command=[RUN_MAIN_ENV_SH]):
@@ -48,9 +48,11 @@ def stop_app():
 
     if pid is not None:
         terminate_process(pid)
-        return "App terminata con successo"
+        status = "TERMINATED"
     else:
-        return "Nessuna istanza in esecuzione"
+        status = "NOT_FOUND"
+
+    return jsonify({"status": "ok", "result": status, "description": f"App is {status}"}), 200
 
 
 @app.route('/status', methods=['GET'])
@@ -59,9 +61,11 @@ def verify_status():
     pid = read_pid_from_file()
 
     if pid is not None:
-        return "RUNNING"
+        status = "RUNNING"
     else:
-        return "STOPPED"
+        status = "STOPPED"
+
+    return jsonify({"status": "ok", "result": status, "description": f"App is {status}"}), 200
 
 
 if __name__ == "__main__":

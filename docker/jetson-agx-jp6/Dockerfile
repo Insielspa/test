@@ -183,7 +183,7 @@ RUN apt-get update && apt-get install -y \
     python3-gst-1.0  
 
 # Other dependencies
-RUN pip3 install psutil==6.0.0
+RUN pip3 install psutil==6.0.0 openpyxl==3.1.5
 
 ##############################################################
 

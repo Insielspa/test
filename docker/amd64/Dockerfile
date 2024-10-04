@@ -151,7 +151,7 @@ RUN make -j16
 RUN make install /usr/local
 
 # Other dependencies
-RUN pip3 install psutil==6.0.0
+RUN pip3 install psutil==6.0.0 openpyxl==3.1.5
 
 # Fase di sviluppo
 FROM development-base AS development
