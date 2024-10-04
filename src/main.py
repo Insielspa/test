@@ -1,7 +1,6 @@
 import argparse
 import atexit
 import configparser
-import os
 import signal
 import sys
 import threading
@@ -26,7 +25,7 @@ exit_signal: threading.Event = threading.Event()
 
 
 def handle_exit(_: int, __: FrameType):
-    print(f"Received interrupt signal (CTRL+C). Shutdown is running and pid file {pid_file} will be removed")
+    print(f"Received interrupt signal (CTRL+C). Shutdown is running and pid file will be removed")
     exit_signal.set()
     remove_pid_file()
 

@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.3.1-devel-ubuntu22.04 AS common
 
 # Aggiunta della direttiva LABEL per fornire metadati
 LABEL maintainer="Francesco Benincasa <xcesco@gmail.com>" \
-      version="0.1.0" \
+      version="0.2.0" \
       description="FVG Vision AI on docker"
 
 # Esposizione delle porte 5000 e 8080 (video in oupput)
@@ -14,8 +14,8 @@ EXPOSE 8080/tcp
 FROM common AS development-base
 
 # Installazione dei package **essenziali**
-RUN apt-get update && apt-get install -y \
-    git nano sudo python3-pip \
+RUN apt-get update && apt-get install -y  \
+    git nano sudo python3-pip             \
     wget python3-venv
 
 # Argomenti per definire ID utente e ID gruppo
@@ -149,6 +149,9 @@ RUN cmake /home/developer/git/opencv  -DCMAKE_BUILD_TYPE=Release \
 
 RUN make -j16
 RUN make install /usr/local
+
+# Other dependencies
+RUN pip3 install psutil==6.0.0
 
 # Fase di sviluppo
 FROM development-base AS development
