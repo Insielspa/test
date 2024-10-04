@@ -6,9 +6,11 @@ LABEL maintainer="Francesco Benincasa <xcesco@gmail.com>" \
       description="FVG Vision AI on docker"
 
 
-# Esposizione delle porte 5000 e 8080 (video in oupput)
+# Esposizione delle porte 5000 e 8080 (video in oupput), 8081 web controller
 EXPOSE 5000/tcp
 EXPOSE 8080/tcp
+
+EXPOSE 8081/tcp
 
 # Base layer
 FROM common AS development-base
@@ -180,6 +182,8 @@ RUN apt-get update && apt-get install -y \
     gstreamer1.0-python3-plugin-loader   \
     python3-gst-1.0  
 
+# Other dependencies
+RUN pip3 install psutil==6.0.0
 
 ##############################################################
 

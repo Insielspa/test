@@ -128,8 +128,8 @@ docker build --tag $DOCKER_ACCOUNT_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
     --target $BUILD_TYPE -f $DOCKER_BASE_DIR/Dockerfile --load $DOCKER_BASE_DIR
 
  # Rimozione della cartella build
- #echo "Rimozione della cartella di build: $BUILD_DIR"
- #rm -rf "$BUILD_DIR"
+ echo "Rimozione della cartella di build: $BUILD_DIR"
+ rm -rf "$BUILD_DIR"
 
 
 if [ "$DEPLOY" = true ]; then
