@@ -43,7 +43,7 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
 
         if self._app_settings.model_filename is not None:
             self._model_file_name = self._app_settings.model_filename.split("/")[-1]
-            self._model = YOLO("yolov9c.pt")
+            self._model = YOLO(f"./assets/models/{self._model_file_name}")
         else:
             if self._app_settings.scenario_pose_enabled:
                 if self._app_settings.model_use_tensort:
