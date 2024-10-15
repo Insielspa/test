@@ -174,7 +174,7 @@ RUN pip3 install                        \
         seaborn configparser pytz       \
         azure.iot.device openpyxl       \
         onnx onnxsim    \
-        flask flask_wtf waitress
+        flask flask_wtf Flask-CORS waitress
 
 RUN pip install --no-deps ultralytics
 

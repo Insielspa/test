@@ -86,7 +86,7 @@ RUN pip3 install torchvision
 
 RUN pip3 install tensorrt
 RUN pip3 install azure.iot.device openpyxl
-RUN pip3 install flask flask_wtf configparser cython pytz waitress
+RUN pip3 install flask flask_wtf Flask-CORS configparser cython pytz waitress
 RUN pip3 install ultralytics
 #RUN pip3 uninstall opencv-python -y
 # Setup opencv con CUDA \
