@@ -28,6 +28,7 @@ from fvgvisionai.processor.subprocessors.parking_sub_processor import ParkingSub
 from fvgvisionai.processor.subprocessors.raise_your_hand_sub_processor import RaiseYourHandSubProcessor
 from fvgvisionai.processor.subprocessors.in_zone_sub_processor import InZoneSubProcessor, AlarmStatus
 
+MODELS_TRACKER_YAML = "assets/models/tracker.yaml"
 MIN_HEIGHT_FOR_MODEL = 448
 
 
@@ -56,6 +57,7 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
                 else:
                     self._model_file_name = f"{app_settings.model_id.value['prefix']}{app_settings.model_size.value['suffix']}.pt"
             self._model = YOLO(f"./assets/models/{self._model_file_name}")
+        self._logger.info(f"Used model is {self._model_file_name}")
 
         self._image_source_width = 0
         self._image_source_height = 0
@@ -70,6 +72,9 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
         self._tracking_enabled = (app_settings.model_tracking_enabled or
                                   app_settings.scenario_door_enabled or
                                   (app_settings.show_time_people_in_zone and app_settings.scenario_zone_enabled))
+
+        if self._tracking_enabled:
+            self._logger.info(f"Used model tracker is {MODELS_TRACKER_YAML}")
 
         self._scenario_pose_enabled = app_settings.scenario_pose_enabled
         self._scenario_zone_enabled = app_settings.scenario_zone_enabled
@@ -165,7 +170,7 @@ class UltralyticsFrameProcessor(AbstractFrameProcessor, ABC):
 
                 if self._tracking_enabled:
                     results = self._model.track(model_frame, verbose=False,
-                                                tracker="assets/models/tracker.yaml",
+                                                tracker=MODELS_TRACKER_YAML,
                                                 imgsz=self._app_settings.model_resolution.value["resolution"],
                                                 conf=self._app_settings.model_confidence,
                                                 iou=self._app_settings.model_iou,
