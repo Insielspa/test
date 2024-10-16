@@ -10,7 +10,6 @@ from flask_cors import CORS
 from fvgvisionai.common.pid_file import read_pid_from_file, terminate_process
 
 RUN_MAIN_ENV_SH = "/app/run_main_env.sh"
-
 RUN_MAIN_SH = "/app/run_main.sh"
 
 DEFAULT_IMAGE_PATH="/app/assets/images/no_image_available800x600.jpg"
