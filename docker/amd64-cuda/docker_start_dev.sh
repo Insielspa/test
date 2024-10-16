@@ -31,7 +31,7 @@ if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then
 fi
 
 # Esegui il container
-docker run -d                                                         \
+docker run -d --runtime nvidia                                        \
         --shm-size=5gb                                                \
         --gpus 'all,"capabilities=compute,utility,graphics,video"'    \
         -p 2222:22 -p 5000:5000 -p 80:8080 -p 8081:8081 -p 8888:8888  \

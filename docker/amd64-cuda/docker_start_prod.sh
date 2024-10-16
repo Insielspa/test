@@ -6,14 +6,16 @@ source .env
 DOCKER_BASE_DIR=.
 DOCKER_IMAGE_NAME=$BUILD_IMAGE_NAME
 
+FVGVISION_AI_SCENARIO=main
+
 # Variabile per la versione dell'immagine
-DOCKER_IMAGE_VERSION=${BUILD_IMAGE_VERSION}-${BUILD_IMAGE_PLATFORM}${BUILD_IMAGE_DEVELOPMENT_PREFIX}
+DOCKER_IMAGE_VERSION=${BUILD_IMAGE_VERSION}-${BUILD_IMAGE_PLATFORM}${BUILD_IMAGE_PRODUCTION_PREFIX}
 
 echo Effettuo run $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
 
 
 # Nome del container
-CONTAINER_NAME="fvgvision-ai-dev"
+CONTAINER_NAME="fvgvision-ai-main"
 
 # Immagine Docker da utilizzare
 IMAGE_NAME="docker.io/$DOCKER_ACCOUNT_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
@@ -31,16 +33,16 @@ if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then
 fi
 
 # Esegui il container
-docker run -d                                                         \
+docker run -d --runtime nvidia                                        \
         --shm-size=5gb                                                \
         --gpus 'all,"capabilities=compute,utility,graphics,video"'    \
-        -p 2222:22 -p 5000:5000 -p 80:8080 -p 8081:8081 -p 8888:8888  \
-        --env-file .env                                               \
-        -v $APP_PATH:/app                                             \
-        -v $(pwd)/runtime/.bashrc:/home/developer/.bashrc             \
-        -v $(pwd)/runtime/.bashrc:/root/.bashrc                       \
-        --mount type=tmpfs,destination=/mnt/hls                       \
-        --name $CONTAINER_NAME $IMAGE_NAME
+        -p 5000:5000 -p 80:8080 -p 8081:8081                          \
+  	    --env-file .env-$FVGVISION_AI_SCENARIO                        \
+  	    -v $APP_PATH:/app                                             \
+  	    -v $(pwd)/runtime/.bashrc:/home/developer/.bashrc             \
+	      -v $(pwd)/runtime/.bashrc:/root/.bashrc                       \
+  	    --mount type=tmpfs,destination=/mnt/hls                       \
+	      --name $CONTAINER_NAME $IMAGE_NAME
 
 # Verifica se il container è stato avviato correttamente
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then

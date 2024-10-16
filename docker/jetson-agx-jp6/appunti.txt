@@ -1,0 +1,25 @@
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt-get update
+sudo apt-get install gstreamer1.0-tools gstreamer1.0-alsa \
+     gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
+     gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
+     gstreamer1.0-libav
+sudo apt-get install libgstreamer1.0-dev \
+     libgstreamer-plugins-base1.0-dev \
+     libgstreamer-plugins-good1.0-dev \
+     libgstreamer-plugins-bad1.0-dev
+sudo apt-get update
+sudo apt-get install nvidia-l4t-gstreamer
+sudo ldconfig
+rm -rf .cache/gstreamer-1.0/
+
+
+# Path numpy
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D PYTHON_EXECUTABLE=$(which python) -D PYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") -D PYTHON_LIBRARY=$(python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") -D PYTHON3_NUMPY_INCLUDE_DIRS=$(python -c "import numpy; print(numpy.get_include())") ..
+
+https://jdhao.github.io/2022/11/16/auto_completion_opencv/
+
+
+lazygit
+git pull

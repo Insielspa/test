@@ -1,5 +1,5 @@
-# https://hub.docker.com/_/python/tags?name=3.10
-FROM python:3.10.15-slim-bullseye AS common
+# https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda
+FROM nvidia/cuda:12.3.1-devel-ubuntu22.04 AS common
 
 # Aggiunta della direttiva LABEL per fornire metadati
 LABEL maintainer="Francesco Benincasa <xcesco@gmail.com>" \
@@ -49,6 +49,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get install -y software-properties-common apt-utils \
                         gcc git nano curl wget ffmpeg libsm6 libxext6 \
                         python3-dev
+# Imposta python3.10 come l'alternativa predefinita per python e python3
+# RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
 # Nginx
 RUN apt-get update && apt-get install -y nginx
@@ -61,6 +64,16 @@ COPY ./build/assets/nginx/config/nginx.conf /etc/nginx/nginx.conf
 #
 ##############################################################
 
+# Fix NVIDIA CODEC SDK
+COPY ./assets/Video_Codec_SDK_12.1.14/Interface/*.h /usr/local/cuda/include/
+# Preso da /usr/lib/x86_64-linux-gnu/libnvcuvid.so.545.23.08
+# cp /usr/lib/x86_64-linux-gnu/libnvcuvid.so.545.23.08 docker/amd64-base/assets/Video_Codec_SDK_12.1.14/lib/libnvcuvid.so
+COPY ./assets/Video_Codec_SDK_12.1.14/Lib/linux/stubs/x86_64/libnvcuvid.so /usr/local/cuda/lib64/libnvcuvid.so
+
+# Preso da /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.545.23.08
+# cp /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.545.23.08 docker/amd64-base/assets/Video_Codec_SDK_12.1.14/lib/libnvidia-encode.so
+COPY ./assets/Video_Codec_SDK_12.1.14/Lib/linux/stubs/x86_64/libnvidia-encode.so /usr/local/cuda/lib64/libnvidia-encode.so
+
 # Crea cartella git e sistema relativi permessi
 RUN mkdir /home/developer/git
 RUN chown -R developer:developer /home/developer
@@ -71,13 +84,71 @@ RUN chown -R developer:developer /home/developer
 RUN pip3 install torch
 RUN pip3 install torchvision
 
+RUN pip3 install tensorrt
 RUN pip3 install azure.iot.device openpyxl
 RUN pip3 install flask flask_wtf Flask-CORS configparser cython pytz waitress
 RUN pip3 install ultralytics
 #RUN pip3 uninstall opencv-python -y
-
+# Setup opencv con CUDA \
 # Installazione dipendenze python
 RUN pip3 install numpy==1.26.4
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    libavcodec-dev \
+    libavformat-dev \
+    libavutil-dev \
+    libeigen3-dev \
+    libglew-dev \
+    libgstreamer-plugins-base1.0-dev \
+    libgstreamer1.0-dev \
+    libgtk2.0-dev \
+    libgtk-3-dev \
+    libjpeg-dev \
+    libpng-dev \
+    libpostproc-dev \
+    libswscale-dev \
+    libtbb-dev \
+    libtiff5-dev \
+    libv4l-dev \
+    libxvidcore-dev \
+    libx264-dev \
+    qtbase5-dev qt5-qmake \
+    zlib1g-dev \
+    pkg-config
+
+WORKDIR /home/developer/git
+RUN git clone --branch 4.8.0 https://github.com/opencv/opencv
+RUN git clone --branch 4.8.0 https://github.com/opencv/opencv_contrib
+RUN mkdir opencv_build
+WORKDIR /home/developer/git/opencv_build
+RUN cmake /home/developer/git/opencv  -DCMAKE_BUILD_TYPE=Release \
+   -D CMAKE_INSTALL_PREFIX=/usr/local \
+   -D BUILD_EXAMPLES=OFF        \
+   -D BUILD_opencv_python2=OFF  \
+   -D BUILD_opencv_python3=ON   \
+   -D PYTHON3_EXECUTABLE=/usr/bin/python3 \
+   -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.10/dist-packages \
+   -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.10/dist-packages/numpy/core/include \
+   -D OPENCV_PYTHON3_INSTALL_PATH=/usr/local/lib/python3.10/dist-packages \
+   -D OPENCV_EXTRA_MODULES_PATH=/home/developer/git/opencv_contrib/modules \
+   -D CUDA_ARCH_BIN=8.6         \
+   -D CUDA_FAST_MATH=ON         \
+   -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
+   -D CMAKE_LIBRARY_PATH=/usr/local/cuda/lib64/stubs \
+   -D OPENCV_DNN_CUDA=OFF       \
+   -D OPENCV_ENABLE_NONFREE=ON \
+   -D WITH_CUDA=ON              \
+   -D WITH_CUDNN=OFF            \
+   -D WITH_FFMPEG=ON            \
+   -D WITH_GSTREAMER=ON         \
+   -D WITH_OPENGL=ON            \
+   -D BUILD_PERF_TESTS=OFF      \
+   -D BUILD_TESTS=OFF
+
+RUN make -j16
+RUN make install /usr/local
 
 # Other dependencies
 RUN pip3 install psutil==6.0.0 openpyxl==3.1.5
