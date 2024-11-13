@@ -9,7 +9,6 @@
     <toc-element topic="starter.md">
         <toc-element topic="Project-description.md"/>
         <toc-element topic="Goals-and-use-cases.md"/>
-        <toc-element topic="General-architecture.md"/>
     </toc-element>
     <toc-element topic="Requirements.md">
         <toc-element topic="Software-dependencies.md"/>
