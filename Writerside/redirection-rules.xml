@@ -10,4 +10,8 @@
         <description>Created after removal of "Application Architecture" from FVG Vision AI</description>
         <accepts>General-architecture.html</accepts>
     </rule>
+    <rule id="323385ec">
+        <description>Created after removal of "Description of the module architecture" from FVG Vision AI</description>
+        <accepts>Flow-diagram.html</accepts>
+    </rule>
 </rules>

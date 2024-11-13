@@ -1,3 +1,0 @@
-# Description of the module architecture
-
-Start typing here...

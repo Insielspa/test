@@ -18,10 +18,12 @@
     <toc-element topic="Quick-start.md"/>
     <toc-element topic="Installation-and-setup.md"/>
     <toc-element topic="Main-modules.md">
-        <toc-element topic="Flow-diagram.md"/>
         <toc-element topic="Input.md"/>
         <toc-element topic="Processing.md"/>
-        <toc-element topic="Output.md"/>
+        <toc-element topic="Output.md">
+            <toc-element topic="Image-sequence.md"/>
+            <toc-element topic="HLS-stream.md"/>
+        </toc-element>
         <toc-element topic="Notification.md"/>
         <toc-element topic="Benchmark.md"/>
     </toc-element>
