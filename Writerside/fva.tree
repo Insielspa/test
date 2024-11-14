@@ -11,9 +11,8 @@
         <toc-element topic="Goals-and-use-cases.md"/>
     </toc-element>
     <toc-element topic="Requirements.md">
-        <toc-element topic="Software-dependencies.md"/>
-        <toc-element topic="Dependency-installation.md"/>
-        <toc-element topic="Supported-hardware.md"/>
+        <toc-element topic="Hardware-requirements.md"/>
+        <toc-element topic="Software-requirements.md"/>
     </toc-element>
     <toc-element topic="Quick-start.md"/>
     <toc-element topic="Installation-and-setup.md"/>

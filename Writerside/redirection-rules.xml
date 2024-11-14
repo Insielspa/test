@@ -14,4 +14,12 @@
         <description>Created after removal of "Description of the module architecture" from FVG Vision AI</description>
         <accepts>Flow-diagram.html</accepts>
     </rule>
+    <rule id="1231de32">
+        <description>Created after removal of "Dependency installation" from FVG Vision AI</description>
+        <accepts>Dependency-installation.html</accepts>
+    </rule>
+    <rule id="601ad350">
+        <description>Created after removal of "Environment setup" from FVG Vision AI</description>
+        <accepts>Supported-hardware.html</accepts>
+    </rule>
 </rules>
