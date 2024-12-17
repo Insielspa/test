@@ -38,7 +38,6 @@ docker run -d --runtime nvidia                                        \
         --gpus 'all,"capabilities=compute,utility,graphics,video"'    \
         -p 5000:5000 -p 80:8080 -p 8081:8081                          \
   	    --env-file .env-$FVGVISION_AI_SCENARIO                        \
-  	    -v $APP_PATH:/app                                             \
   	    -v $(pwd)/runtime/.bashrc:/home/developer/.bashrc             \
 	      -v $(pwd)/runtime/.bashrc:/root/.bashrc                       \
   	    --mount type=tmpfs,destination=/mnt/hls                       \
