@@ -20,7 +20,7 @@ def app_service_start(execution_type: str) -> tuple[Response, int]:
     if execution_type not in ['file', 'env']:
         abort(400, description="Invalid 'type' parameter. Must be 'file' or 'env'.")
     command = [RUN_MAIN_WEB]
-    _execute_fvgvision_ai(command)
+    execute_fvgvision_ai(command)
     # Avvia il processo come demone, senza bloccare il processo principale
     status = "RUNNING"
     return jsonify({"status": "ok", "result": status, "description": f"App is {status}"}), 200
@@ -49,7 +49,7 @@ def app_service_restart(execution_type: str) -> tuple[Response, int]:
 
         # Esegui il comando in base al valore di 'type'
     command = [RUN_MAIN_WEB]
-    _execute_fvgvision_ai(command)
+    execute_fvgvision_ai(command)
     status = "RUNNING"
     return jsonify({"status": "ok", "result": status, "description": f"App is {status}"}), 200
 

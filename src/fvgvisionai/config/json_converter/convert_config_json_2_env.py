@@ -32,6 +32,8 @@ def process_node(node) -> (any, int, int):
         process_display(node_payload, processed_data)
     elif node_type == NodeTemplateEnum.ULTRALYTICS_PROCESSING.value:
         process_ultralytics_processing(node_payload, processed_data)
+    elif node_type == NodeTemplateEnum.ULTRALYTICS_CUSTOM_MODEL_PROCESSING.value:
+        process_custom_ultralytics_processing(node_payload, processed_data)
     elif node_type == NodeTemplateEnum.SKIP_FRAMES.value:
         process_skip_frames(node_payload, processed_data)
     elif node_type == NodeTemplateEnum.OUTPUT_STREAM_FPS_LIMITER.value:
@@ -87,6 +89,12 @@ def process_ultralytics_processing(node_payload, processed_data):
     processed_data['MODEL_PRECISION'] = convert_2_string(node_payload['precision']).lower()
     processed_data['MODEL_IMAGE_SIZE'] = convert_2_string(node_payload['image_size'])
     processed_data['MODEL_USE_TENSORT'] = convert_2_bool(node_payload['use_tensorrt'])
+    processed_data['MODEL_CONFIDENCE'] = convert_2_number_sequence(node_payload['confidence'])
+    processed_data['MODEL_IOU'] = convert_2_number_sequence(node_payload['iou'])
+
+def process_custom_ultralytics_processing(node_payload, processed_data):
+    processed_data['MODEL_FILENAME'] = convert_2_string(node_payload['model_filename'])
+    processed_data['MODEL_IMAGE_SIZE'] = convert_2_string(node_payload['image_size'])
     processed_data['MODEL_CONFIDENCE'] = convert_2_number_sequence(node_payload['confidence'])
     processed_data['MODEL_IOU'] = convert_2_number_sequence(node_payload['iou'])
 
