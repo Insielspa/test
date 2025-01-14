@@ -35,7 +35,8 @@ def terminate_process(pid: int) -> None:
             time.sleep(3)
             print(f"Process with PID {pid} has been terminated.")
         else:
-            print(f"Process with PID {pid} is not running.")
+            print(f"Process with PID {pid} is not running, so file will be deleted.")
+            os.remove(pid_file)
     except ProcessLookupError:
         print(f"Process with PID {pid} does not exist.")
     except PermissionError:

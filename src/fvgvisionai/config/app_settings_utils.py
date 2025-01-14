@@ -93,7 +93,7 @@ def from_props(properties: Dict[str, any], config: Optional[ConfigParser], key: 
 
 def from_env(config: Optional[ConfigParser], key: str, section, cli_args: Dict[str, str]) -> str:
     """
-    Recupera dall'environment i parametri. L'ordine di priorita': args, env, config.ini
+    Recupera dall'environment i parametri. L'ordine di priorita': args, env, default_config.ini
 
     :param config:
     :param key:

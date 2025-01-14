@@ -7,10 +7,10 @@ base_dir = "./assets/models/"
 models_info = [
     #    'yolov8x',
     #    'yolov8x-pose',
-    #'yolov8n',
+    'yolov8n',
     'yolov8n-pose',
-    #'yolo11n',
-    #'yolo11n-pose',
+    'yolo11n',
+    'yolo11n-pose',
     #    'yolov8s',
     #    'yolov8s-pose',
     #    'yolov8m',
@@ -45,8 +45,8 @@ def process_size(section_size_info_entry, section_models_info):
     mode_size_str, model_size_h, model_size_w = section_size_info_entry
     # with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
     for model_file_name in section_models_info:
-        # process_model(model_file_name, mode_size_str, model_size_h, model_size_w)
-        # process_model(model_file_name, mode_size_str, model_size_h, model_size_w, half=True)
+        process_model(model_file_name, mode_size_str, model_size_h, model_size_w)
+        process_model(model_file_name, mode_size_str, model_size_h, model_size_w, half=True)
         process_model(model_file_name, mode_size_str, model_size_h, model_size_w, int8=True)
 
 
