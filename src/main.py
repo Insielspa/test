@@ -10,7 +10,6 @@ from types import FrameType
 from typing import Dict
 
 from fvgvisionai.benchmark.benchmark_monitor import BenchmarkMonitor
-from fvgvisionai.common import pid_file
 from fvgvisionai.common.config_executor import ConfigExecutor
 from fvgvisionai.common.pid_file import remove_pid_file, is_another_instance_running, write_pid_file
 from fvgvisionai.common.triple_buffer import TripleBuffer
@@ -21,6 +20,8 @@ from fvgvisionai.notify.notification_client import NotificationClient
 from fvgvisionai.output.hls.hls_streamer import run_hls_streamer_thread
 from fvgvisionai.webserver.web_server import run_web_server
 
+DEFAULT_CONFIG_INI = 'default_config.ini'
+
 exit_signal: threading.Event = threading.Event()
 
 
@@ -29,6 +30,7 @@ def handle_exit(_: int, __: FrameType):
     exit_signal.set()
     remove_pid_file()
 
+
 def main() -> int:
     global exit_signal
 
@@ -36,7 +38,7 @@ def main() -> int:
     config: ConfigParser = configparser.ConfigParser()
 
     # Leggi il file di configurazione
-    config.read('config.ini')
+    config.read(DEFAULT_CONFIG_INI)
 
     # Leggi il valore associato alla chiave "chiave" nella sezione "Sezione"
     app_version = config.get('application', 'version')
@@ -107,7 +109,7 @@ def main() -> int:
                                                  azure_connection_string=app_settings.azure_connection_string,
                                                  device_id=app_settings.notification_device_id,
                                                  camera_id=app_settings.notification_camera_id,
-                                                 model_id=app_settings.model_id,
+                                                 model_id=app_settings.model_id.value,
                                                  measures_aggregation_time_ms=app_settings.notification_aggregation_time_ms)
         notification_client.start()
     else:

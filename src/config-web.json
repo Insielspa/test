@@ -1,7 +1,7 @@
 {
     "nodes": [
         {
-            "id": "9",
+            "id": "37",
             "name": "Input stream",
             "data": {
                 "type": "INPUT_STREAM",
@@ -24,7 +24,7 @@
             }
         },
         {
-            "id": "10",
+            "id": "38",
             "name": "FPS Limiter",
             "data": {
                 "type": "INPUT_STREAM_FPS_LIMITER",
@@ -39,7 +39,7 @@
             }
         },
         {
-            "id": "11",
+            "id": "39",
             "name": "Input resizer",
             "data": {
                 "type": "INPUT_RESIZER",
@@ -54,7 +54,7 @@
             }
         },
         {
-            "id": "12",
+            "id": "40",
             "name": "Ultralytics Processing",
             "data": {
                 "type": "ULTRALYTICS_PROCESSING",
@@ -75,7 +75,7 @@
             }
         },
         {
-            "id": "13",
+            "id": "41",
             "name": "Output stream FPS Limiter",
             "data": {
                 "type": "OUTPUT_STREAM_FPS_LIMITER",
@@ -90,7 +90,7 @@
             }
         },
         {
-            "id": "14",
+            "id": "42",
             "name": "Output stream",
             "data": {
                 "type": "OUTPUT_STREAM",
@@ -107,7 +107,7 @@
             }
         },
         {
-            "id": "15",
+            "id": "43",
             "name": "Display info",
             "data": {
                 "type": "DISPLAY",
@@ -128,7 +128,7 @@
             }
         },
         {
-            "id": "16",
+            "id": "44",
             "name": "IOT Hub notification",
             "data": {
                 "type": "IOT_HUB_NOTIFICATION",
@@ -146,7 +146,7 @@
             }
         },
         {
-            "id": "17",
+            "id": "45",
             "name": "Scenario In Zone",
             "data": {
                 "type": "SCENARIO_IN_ZONE",
@@ -168,81 +168,81 @@
     "connections": [
         {
             "from": {
-                "nodeId": "9",
+                "nodeId": "37",
                 "output": "output_1"
             },
             "to": {
-                "nodeId": "10",
+                "nodeId": "38",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "10",
+                "nodeId": "38",
                 "output": "output_1"
             },
             "to": {
-                "nodeId": "11",
+                "nodeId": "39",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "11",
+                "nodeId": "39",
                 "output": "output_1"
             },
             "to": {
-                "nodeId": "12",
+                "nodeId": "40",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "12",
+                "nodeId": "40",
                 "output": "output_1"
             },
             "to": {
-                "nodeId": "13",
+                "nodeId": "41",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "12",
+                "nodeId": "40",
                 "output": "output_2"
             },
             "to": {
-                "nodeId": "15",
+                "nodeId": "43",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "12",
+                "nodeId": "40",
                 "output": "output_3"
             },
             "to": {
-                "nodeId": "17",
+                "nodeId": "45",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "12",
+                "nodeId": "40",
                 "output": "output_4"
             },
             "to": {
-                "nodeId": "16",
+                "nodeId": "44",
                 "input": "input_1"
             }
         },
         {
             "from": {
-                "nodeId": "13",
+                "nodeId": "41",
                 "output": "output_1"
             },
             "to": {
-                "nodeId": "14",
+                "nodeId": "42",
                 "input": "input_1"
             }
         }

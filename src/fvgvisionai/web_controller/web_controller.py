@@ -7,6 +7,7 @@ from fvgvisionai.web_controller.commons import decode_base64_to_url, app_service
 from fvgvisionai.web_controller.config_service import config_service_upload, config_service_download
 from fvgvisionai.web_controller.controller_service import generate_image_preview
 from fvgvisionai.web_controller.model_service import model_service_upload, model_service_delete, model_service_list
+from fvgvisionai.web_controller.video_service import video_service_delete, video_service_upload, video_service_list
 
 SWAGGER_URL = '/swagger'
 API_URL = 'assets/static/openapi.yaml'
@@ -108,7 +109,7 @@ def download_config() -> [Response, int]:
     return config_service_download()
 
 @app.route('/models/list', methods=['GET'])
-def list_files() -> [Response, int]:
+def model_list_files() -> [Response, int]:
     """
     Retrieves a list of model files with specific extensions from the models directory.
 
@@ -119,7 +120,7 @@ def list_files() -> [Response, int]:
     return model_service_list()
 
 @app.route('/models/upload', methods=['POST'])
-def upload_file() -> [Response, int]:
+def model_upload_file() -> [Response, int]:
     """
     Uploads a model file to the models directory.
 
@@ -137,9 +138,9 @@ def upload_file() -> [Response, int]:
     return model_service_upload(file)
 
 @app.route('/models/delete', methods=['DELETE'])
-def delete_file() -> [Response, int]:
+def model_delete_file() -> [Response, int]:
     """
-    Deletes a model file from the models directory.
+    Deletes a model file from the video directory.
 
     Returns:
         Response: A JSON response indicating the result of the deletion.
@@ -150,3 +151,48 @@ def delete_file() -> [Response, int]:
         abort(400, description="File name is required")
 
     return model_service_delete(file_name)
+
+
+@app.route('/videos/list', methods=['GET'])
+def video_list_files() -> [Response, int]:
+    """
+    Retrieves a list of video files with specific extensions from the models directory.
+
+    Returns:
+        Response: A JSON response containing the list of model filenames.
+        int: The HTTP status code.
+    """
+    return video_service_list()
+
+@app.route('/videos/upload', methods=['POST'])
+def video_upload_file() -> [Response, int]:
+    """
+    Uploads a model file to the video directory.
+
+    Returns:
+        Response: A JSON response indicating the result of the upload.
+        int: The HTTP status code.
+    """
+    if 'file' not in request.files:
+        abort(400, description="File is required")
+
+    file: FileStorage = request.files['file']
+    if not (file.filename.endswith('.pt') or file.filename.endswith('.engine')):
+        abort(400, description="File must have a .pt or .engine extension")
+
+    return video_service_upload(file)
+
+@app.route('/videos/delete', methods=['DELETE'])
+def video_delete() -> [Response, int]:
+    """
+    Deletes a model file from the video directory.
+
+    Returns:
+        Response: A JSON response indicating the result of the deletion.
+        int: The HTTP status code.
+    """
+    file_name = request.args.get('file_name')
+    if not file_name:
+        abort(400, description="File name is required")
+
+    return video_service_delete(file_name)
